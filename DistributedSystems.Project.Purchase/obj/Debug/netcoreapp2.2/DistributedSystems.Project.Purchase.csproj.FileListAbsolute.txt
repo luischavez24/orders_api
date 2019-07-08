@@ -1,0 +1,14 @@
+D:\lrchavez\dotnetcore\DistributedSystems.Project\DistributedSystems.Project.Purchase\bin\Debug\netcoreapp2.2\DistributedSystems.Project.Purchase.deps.json
+D:\lrchavez\dotnetcore\DistributedSystems.Project\DistributedSystems.Project.Purchase\bin\Debug\netcoreapp2.2\DistributedSystems.Project.Purchase.runtimeconfig.json
+D:\lrchavez\dotnetcore\DistributedSystems.Project\DistributedSystems.Project.Purchase\bin\Debug\netcoreapp2.2\DistributedSystems.Project.Purchase.runtimeconfig.dev.json
+D:\lrchavez\dotnetcore\DistributedSystems.Project\DistributedSystems.Project.Purchase\bin\Debug\netcoreapp2.2\DistributedSystems.Project.Purchase.dll
+D:\lrchavez\dotnetcore\DistributedSystems.Project\DistributedSystems.Project.Purchase\bin\Debug\netcoreapp2.2\DistributedSystems.Project.Purchase.pdb
+D:\lrchavez\dotnetcore\DistributedSystems.Project\DistributedSystems.Project.Purchase\obj\Debug\netcoreapp2.2\DistributedSystems.Project.Purchase.csprojAssemblyReference.cache
+D:\lrchavez\dotnetcore\DistributedSystems.Project\DistributedSystems.Project.Purchase\obj\Debug\netcoreapp2.2\DistributedSystems.Project.Purchase.csproj.CoreCompileInputs.cache
+D:\lrchavez\dotnetcore\DistributedSystems.Project\DistributedSystems.Project.Purchase\obj\Debug\netcoreapp2.2\DistributedSystems.Project.Purchase.RazorAssemblyInfo.cache
+D:\lrchavez\dotnetcore\DistributedSystems.Project\DistributedSystems.Project.Purchase\obj\Debug\netcoreapp2.2\DistributedSystems.Project.Purchase.RazorAssemblyInfo.cs
+D:\lrchavez\dotnetcore\DistributedSystems.Project\DistributedSystems.Project.Purchase\obj\Debug\netcoreapp2.2\DistributedSystems.Project.Purchase.AssemblyInfoInputs.cache
+D:\lrchavez\dotnetcore\DistributedSystems.Project\DistributedSystems.Project.Purchase\obj\Debug\netcoreapp2.2\DistributedSystems.Project.Purchase.AssemblyInfo.cs
+D:\lrchavez\dotnetcore\DistributedSystems.Project\DistributedSystems.Project.Purchase\obj\Debug\netcoreapp2.2\DistributedSystems.Project.Purchase.RazorTargetAssemblyInfo.cache
+D:\lrchavez\dotnetcore\DistributedSystems.Project\DistributedSystems.Project.Purchase\obj\Debug\netcoreapp2.2\DistributedSystems.Project.Purchase.dll
+D:\lrchavez\dotnetcore\DistributedSystems.Project\DistributedSystems.Project.Purchase\obj\Debug\netcoreapp2.2\DistributedSystems.Project.Purchase.pdb
