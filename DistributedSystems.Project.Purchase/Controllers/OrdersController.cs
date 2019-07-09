@@ -76,6 +76,7 @@ namespace DistributedSystems.Project.Purchase.Controllers
         [HttpPost]
         public async Task<ActionResult<Order>> PostOrder(Order order)
         {
+            // Creando la orden para el día de hoy
             order.OrderDate = DateTime.Now;
 
             _context.Order.Add(order);
