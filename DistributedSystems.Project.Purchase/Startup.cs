@@ -13,6 +13,7 @@ using Microsoft.Extensions.Options;
 using DistributedSystems.Project.Purchase.Models;
 
 using Microsoft.EntityFrameworkCore;
+using DistributedSystems.Project.Purchase.Services;
 
 namespace DistributedSystems.Project.Purchase
 {
@@ -29,6 +30,7 @@ namespace DistributedSystems.Project.Purchase
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<StoreContext>();
+            services.AddSingleton<OrdersQueueService>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 

@@ -25,7 +25,7 @@ namespace DistributedSystems.Project.Purchase.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Server=CPU3229\\SQLEXPRESS01;Database=storedesa;Trusted_Connection=True;");
+                optionsBuilder.UseSqlServer("Server=localhost;Database=Store;User=sa;Password=Prueba2019;Trusted_Connection=False;");
             }
         }
 

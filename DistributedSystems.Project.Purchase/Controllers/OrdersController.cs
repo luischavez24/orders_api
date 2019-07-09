@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using DistributedSystems.Project.Purchase.Models;
+using DistributedSystems.Project.Purchase.Services;
 
 namespace DistributedSystems.Project.Purchase.Controllers
 {
@@ -14,10 +15,11 @@ namespace DistributedSystems.Project.Purchase.Controllers
     public class OrdersController : ControllerBase
     {
         private readonly StoreContext _context;
-
-        public OrdersController(StoreContext context)
+        private readonly OrdersQueueService _ordersQueueService;
+        public OrdersController(StoreContext context, OrdersQueueService orderQueueService)
         {
             _context = context;
+            _ordersQueueService = orderQueueService;
         }
 
         // GET: api/Orders
@@ -31,10 +33,7 @@ namespace DistributedSystems.Project.Purchase.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Order>> GetOrder(int id)
         {
-            var order = await _context.Order
-                        .Include(o => o.Customer.FirstName)
-                        .Include(o => o.Customer.LastName)
-                        .FirstOrDefaultAsync(o => o.Id == id);
+            var order = await _context.Order.FirstOrDefaultAsync(o => o.Id == id);
 
             if (order == null)
             {
@@ -78,7 +77,17 @@ namespace DistributedSystems.Project.Purchase.Controllers
         public async Task<ActionResult<Order>> PostOrder(Order order)
         {
             _context.Order.Add(order);
+
+            order.TotalAmount = order.OrderItem.Select(oi => oi.Quantity * oi.UnitPrice).Sum();
+
             await _context.SaveChangesAsync();
+
+            foreach(var item in order.OrderItem)
+            {
+                item.Order = null;
+            }
+
+            _ordersQueueService.PublishNewOrder(order);
 
             return CreatedAtAction("GetOrder", new { id = order.Id }, order);
         }
