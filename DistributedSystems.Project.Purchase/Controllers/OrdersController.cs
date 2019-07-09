@@ -76,6 +76,8 @@ namespace DistributedSystems.Project.Purchase.Controllers
         [HttpPost]
         public async Task<ActionResult<Order>> PostOrder(Order order)
         {
+            order.OrderDate = DateTime.Now;
+
             _context.Order.Add(order);
 
             order.TotalAmount = order.OrderItem.Select(oi => oi.Quantity * oi.UnitPrice).Sum();

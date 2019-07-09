@@ -47,12 +47,8 @@ namespace DistributedSystems.Project.Purchase.Services
                         arguments: null
                     );
 
-                    var jsonPayload = JsonConvert.SerializeObject(order, new JsonSerializerSettings
-                    {
-                        ContractResolver = contractResolver
-                    });
-
-                    var body = Encoding.UTF8.GetBytes(jsonPayload);
+                   
+                    var body = Encoding.UTF8.GetBytes(order.Id.ToString());
 
                     channel.BasicPublish(exchange: "",
                         routingKey: OrdersQueue,
