@@ -78,11 +78,9 @@ namespace DistributedSystems.Project.Purchase.Controllers
         {
             // Creando la orden para el día de hoy
             order.OrderDate = DateTime.Now;
-
-            _context.Order.Add(order);
-
             order.TotalAmount = order.OrderItem.Select(oi => oi.Quantity * oi.UnitPrice).Sum();
 
+            _context.Order.Add(order);
             await _context.SaveChangesAsync();
 
             foreach(var item in order.OrderItem)

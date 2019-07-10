@@ -46,6 +46,7 @@ namespace DistributedSystems.Project.Purchase.Services
                         arguments: null
                     );
 
+
                     var body = Encoding.UTF8.GetBytes(order.Id.ToString());
 
                     channel.BasicPublish(exchange: OrdersExchange,
