@@ -12,12 +12,11 @@ namespace DistributedSystems.Project.Purchase.Services
 {
     public class OrdersQueueService
     {
-
         private readonly ConnectionFactory connectionFactory;
         private readonly DefaultContractResolver contractResolver;
 
         public const string OrdersQueue = "orders";
-
+        public const string OrdersExchange = "";
         public OrdersQueueService()
         {
             connectionFactory = new ConnectionFactory
@@ -47,10 +46,9 @@ namespace DistributedSystems.Project.Purchase.Services
                         arguments: null
                     );
 
-                   
                     var body = Encoding.UTF8.GetBytes(order.Id.ToString());
 
-                    channel.BasicPublish(exchange: "",
+                    channel.BasicPublish(exchange: OrdersExchange,
                         routingKey: OrdersQueue,
                         basicProperties: null,
                         body: body
