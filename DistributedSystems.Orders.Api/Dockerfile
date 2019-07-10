@@ -7,7 +7,7 @@ FROM microsoft/dotnet:2.2-sdk AS build
 WORKDIR /src
 # COPY ["DistributedSystems.Orders.Api/DistributedSystems.Orders.Api.csproj", "DistributedSystems.Orders.Api/"]
 COPY ["./", "DistributedSystems.Orders.Api/"]
-RUN ls
+
 RUN dotnet restore "DistributedSystems.Orders.Api/DistributedSystems.Orders.Api.csproj"
 COPY . .
 WORKDIR "/src/DistributedSystems.Orders.Api"

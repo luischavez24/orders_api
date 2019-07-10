@@ -1,8 +1,4 @@
 version: '3.1'
-networks:
-  default:
-    external:
-      name: ordersnet
 services:
   ordersapi:
     depends_on: 
