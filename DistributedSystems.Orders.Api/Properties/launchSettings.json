@@ -17,7 +17,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "DistributedSystems.Project.Purchase": {
+    "DistributedSystems.Orders.Api": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "api/values",

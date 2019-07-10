@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
-namespace DistributedSystems.Project.Purchase
+namespace DistributedSystems.Orders.Api
 {
     public class Program
     {

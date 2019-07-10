@@ -5,10 +5,10 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using DistributedSystems.Project.Purchase.Models;
-using DistributedSystems.Project.Purchase.Services;
+using DistributedSystems.Orders.Api.Models;
+using DistributedSystems.Orders.Api.Services;
 
-namespace DistributedSystems.Project.Purchase.Controllers
+namespace DistributedSystems.Orders.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

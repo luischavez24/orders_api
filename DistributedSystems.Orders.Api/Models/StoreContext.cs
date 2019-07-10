@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
-namespace DistributedSystems.Project.Purchase.Models
+namespace DistributedSystems.Orders.Api.Models
 {
     public partial class StoreContext : DbContext
     {

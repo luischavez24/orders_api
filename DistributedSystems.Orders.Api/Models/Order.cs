@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace DistributedSystems.Project.Purchase.Models
+namespace DistributedSystems.Orders.Api.Models
 {
     public partial class Order
     {

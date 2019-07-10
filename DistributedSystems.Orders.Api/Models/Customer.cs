@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace DistributedSystems.Project.Purchase.Models
+namespace DistributedSystems.Orders.Api.Models
 {
     public partial class Customer
     {

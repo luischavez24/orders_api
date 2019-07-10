@@ -10,12 +10,12 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using DistributedSystems.Project.Purchase.Models;
+using DistributedSystems.Orders.Api.Models;
 
 using Microsoft.EntityFrameworkCore;
-using DistributedSystems.Project.Purchase.Services;
+using DistributedSystems.Orders.Api.Services;
 
-namespace DistributedSystems.Project.Purchase
+namespace DistributedSystems.Orders.Api
 {
     public class Startup
     {

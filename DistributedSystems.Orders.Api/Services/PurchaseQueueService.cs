@@ -1,4 +1,4 @@
-﻿using DistributedSystems.Project.Purchase.Models;
+﻿using DistributedSystems.Orders.Api.Models;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using RabbitMQ.Client;
@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DistributedSystems.Project.Purchase.Services
+namespace DistributedSystems.Orders.Api.Services
 {
     public class OrdersQueueService
     {
