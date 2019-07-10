@@ -1,11 +1,15 @@
 version: '3.1'
+networks:
+  default:
+    external:
+      name: ordersnet
 services:
-  # ordersapi:
-  # depends_on: 
-  #    - mssql
-  #  build: ./DistributedSystems.Orders.Api
-  #  ports:
-  #    - "9200:80"
+  ordersapi:
+    depends_on: 
+      - mssql
+    build: ./DistributedSystems.Orders.Api
+    ports:
+      - "9200:80"
   mssql:
     image: microsoft/mssql-server-linux:2017-latest
     environment:
