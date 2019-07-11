@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DistributedSystems.Orders.Api.Models
 {
@@ -9,6 +8,7 @@ namespace DistributedSystems.Orders.Api.Models
         public Order()
         {
             OrderItem = new HashSet<OrderItem>();
+            OrderTracking = new HashSet<OrderTracking>();
         }
 
         public int Id { get; set; }
@@ -16,7 +16,9 @@ namespace DistributedSystems.Orders.Api.Models
         public string OrderNumber { get; set; }
         public int CustomerId { get; set; }
         public decimal? TotalAmount { get; set; }
+
         public virtual Customer Customer { get; set; }
         public virtual ICollection<OrderItem> OrderItem { get; set; }
+        public virtual ICollection<OrderTracking> OrderTracking { get; set; }
     }
 }

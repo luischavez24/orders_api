@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace DistributedSystems.Orders.Api.Models
 {
@@ -16,12 +18,13 @@ namespace DistributedSystems.Orders.Api.Models
         public virtual DbSet<Customer> Customer { get; set; }
         public virtual DbSet<Order> Order { get; set; }
         public virtual DbSet<OrderItem> OrderItem { get; set; }
+        public virtual DbSet<OrderTracking> OrderTracking { get; set; }
         public virtual DbSet<Product> Product { get; set; }
+        public virtual DbSet<Status> Status { get; set; }
         public virtual DbSet<Supplier> Supplier { get; set; }
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.HasAnnotation("ProductVersion", "2.2.3-servicing-35854");
+            modelBuilder.HasAnnotation("ProductVersion", "2.2.4-servicing-10062");
 
             modelBuilder.Entity<Customer>(entity =>
             {
@@ -31,6 +34,8 @@ namespace DistributedSystems.Orders.Api.Models
                 entity.Property(e => e.City).HasMaxLength(40);
 
                 entity.Property(e => e.Country).HasMaxLength(40);
+
+                entity.Property(e => e.Email).HasMaxLength(100);
 
                 entity.Property(e => e.FirstName)
                     .IsRequired()
@@ -65,7 +70,7 @@ namespace DistributedSystems.Orders.Api.Models
                     .WithMany(p => p.Order)
                     .HasForeignKey(d => d.CustomerId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_ORDER_REFERENCE_CUSTOMER");
+                    .HasConstraintName("FKeh7gtmhl8yeg4ccehjb85hpn5");
             });
 
             modelBuilder.Entity<OrderItem>(entity =>
@@ -84,13 +89,32 @@ namespace DistributedSystems.Orders.Api.Models
                     .WithMany(p => p.OrderItem)
                     .HasForeignKey(d => d.OrderId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_ORDERITE_REFERENCE_ORDER");
+                    .HasConstraintName("FK1bt6cu4yhkugjpncxyaf57d27");
 
                 entity.HasOne(d => d.Product)
                     .WithMany(p => p.OrderItem)
                     .HasForeignKey(d => d.ProductId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_ORDERITE_REFERENCE_PRODUCT");
+                    .HasConstraintName("FK6hj4eem6e3gnytudk0ky4thk1");
+            });
+
+            modelBuilder.Entity<OrderTracking>(entity =>
+            {
+                entity.Property(e => e.UpdateStatusDate)
+                    .HasColumnType("datetime")
+                    .HasDefaultValueSql("(getdate())");
+
+                entity.HasOne(d => d.Order)
+                    .WithMany(p => p.OrderTracking)
+                    .HasForeignKey(d => d.OrderId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_ORDER_TRACKING_REFERENCE_ORDER");
+
+                entity.HasOne(d => d.Status)
+                    .WithMany(p => p.OrderTracking)
+                    .HasForeignKey(d => d.StatusId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_ORDER_TRACKING_REFERENCE_STATUS");
             });
 
             modelBuilder.Entity<Product>(entity =>
@@ -115,7 +139,14 @@ namespace DistributedSystems.Orders.Api.Models
                     .WithMany(p => p.Product)
                     .HasForeignKey(d => d.SupplierId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_PRODUCT_REFERENCE_SUPPLIER");
+                    .HasConstraintName("FKdxq229omktl7o2vmuusdqrjoo");
+            });
+
+            modelBuilder.Entity<Status>(entity =>
+            {
+                entity.Property(e => e.StatusName)
+                    .IsRequired()
+                    .HasMaxLength(30);
             });
 
             modelBuilder.Entity<Supplier>(entity =>

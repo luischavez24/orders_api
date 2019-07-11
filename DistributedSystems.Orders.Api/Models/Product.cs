@@ -16,7 +16,7 @@ namespace DistributedSystems.Orders.Api.Models
         public decimal? UnitPrice { get; set; }
         public string Package { get; set; }
         public bool IsDiscontinued { get; set; }
-        public int Stock { get; set; }
+        public int? Stock { get; set; }
 
         public virtual Supplier Supplier { get; set; }
         public virtual ICollection<OrderItem> OrderItem { get; set; }

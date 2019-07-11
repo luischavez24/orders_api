@@ -16,12 +16,7 @@ namespace DistributedSystems.Orders.Api.Models
         public string City { get; set; }
         public string Country { get; set; }
         public string Phone { get; set; }
-        public string FullName {
-            get
-            {
-                return $"{FirstName} {LastName}";
-            }
-        }
+        public string Email { get; set; }
 
         public virtual ICollection<Order> Order { get; set; }
     }
