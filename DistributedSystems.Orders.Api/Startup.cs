@@ -36,6 +36,7 @@ namespace DistributedSystems.Orders.Api
                     options.UseSqlServer(Configuration.GetConnectionString("Store"));
                 }
             });
+            services.AddSingleton(Configuration);
             services.AddSingleton<OrdersQueueService>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
